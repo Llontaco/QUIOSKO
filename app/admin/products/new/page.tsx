@@ -1,10 +1,18 @@
+import AddProductForm from "@/components/products/AddProductForm"
+import ProductForm from "@/components/products/ProductForm"
+import Heading from "@/components/ui/heading"
 
 export default function CreateProductsPage() {
 
   console.log('Desde el servidor')
   
   return (
-    <h1>CreateProductsPage</h1>
+    <>
+      <Heading>Nuevo Producto</Heading>
+      <AddProductForm>
+        <ProductForm />
+      </AddProductForm>
+    </>
 
   )
 }
