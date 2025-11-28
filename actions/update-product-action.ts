@@ -8,7 +8,8 @@ export async function updateProduct(data: unknown, id: number) {
     const result = ProductSchema.safeParse(data)
     if(!result.success){
         return {
-            error: result.error.issues
+            // Return the whole ZodError so callers can read `error.issues`.
+            error: result.error
         }
     }
     await prisma.product.update({

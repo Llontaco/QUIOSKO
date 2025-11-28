@@ -7,7 +7,8 @@ export async function createProduct(data: unknown){
     const result = ProductSchema.safeParse(data)
     if(!result.success){
         return {
-            error: result.error.issues
+            // Return the full ZodError so callers can access `error.issues`
+            error: result.error
         }
     }
     await prisma.product.create({
